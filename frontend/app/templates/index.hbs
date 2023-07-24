@@ -1,0 +1,14 @@
+<Jumbo>
+  <h2>Welcome to Super Doctors!</h2>
+  <p>We hope you find exactly what you're looking for in a place to stay.</p>
+  <LinkTo @route="about" class="button">About Us</LinkTo>
+</Jumbo>
+
+<div class="rentals">
+  <ul class="results">
+    <Doctor::Filter/>
+    {{#each @model as |doctor|}}
+      <li><Doctor @doctor={{@doctor}} /></li>
+    {{/each}}
+  </ul>
+</div>

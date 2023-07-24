@@ -1,0 +1,38 @@
+   You should make a project on your own.  Like really, you.  All of it.
+
+   This means working with a few different tools and adding a few features.
+   
+*** A checkbox for your solution
+    Let's assume you make duperdap
+
+    - [ ] has an app-duperdap mu-project
+    - [ ] has a frontend-duperdap frontend in EmberJS
+    - [ ] uses ember-data in the frontend
+    - [ ] uses omnipresent microservices:
+      - [ ] identifier
+      - [ ] dispatcher
+      - [ ] resource
+      - [ ] mu-authorization
+      - [ ] virtuoso
+      - [ ] migrations
+    - [ ] includes at least one custom microservice
+    - [ ] uses mu-cl-resources for generic API
+    - [ ] uses migrations-service for seed data
+    - [ ] includes docker-compose.yml that could be used as production setup
+    - [ ] includes docker-compose.dev.yml for development overrides (eg: publish port 80 of identifier, 8890 of Virtuoso)
+    - [ ] has woodpecker builds for the frontend and custom services
+
+*** An approach forward
+    Choose a simple CRUD application that you could use.
+
+    1. Initialize a new mu-project
+    2. Initialize a new EmberJS frontend
+    3. CRUD models through mu-authorization
+    4. Add microservice for some statistics
+
+    Some interesting extras:
+
+    1. something to shield data with login
+    2. use mu-cache with mu-cl-resources
+    3. consume delta messages in a custom service
+
