@@ -1,7 +1,53 @@
-<Doctor::Detailed @doctor={{@model}} />
-<div>
-    {{#each @model as |doctor|}}
-    <p>{{doctor.naam}}</p>
-    <p>{{doctor.straat}}</p>
-    {{/each}}
-</div>
+{{outlet}}
+{{! app/templates/doctor.hbs}}
+{{#each @model as |doctor|}}
+  <div class="details">
+    <h3>Dr. {{doctor.naam}}</h3>
+    <div class="detail owner">
+        <span>Straat : </span> {{doctor.straat}}
+    </div>
+    <div class="detail location">
+        <span>Huisnummer : </span> {{doctor.huisnr}}
+    </div>
+    <div class="detail bedrooms">
+        <span>Postcode : </span> {{doctor.postcode}}
+    </div>
+    <div class="detail owner">
+        <span>Gemeente : </span> {{doctor.gemeente}}
+    </div>
+    <div class="detail location">
+        <span>Type : </span> {{doctor.type}}
+    </div>
+  </div>
+  <button {{on "click" (fn this.removeDoctor doctor)}}>Remove</button>
+{{/each}}
+
+<form {{on "submit" this.createDoctor}}>
+  <dl>
+    <dt>Naam : </dt>
+    <dd>
+      <Input @value={{this.newNaam}} @placeholder="naam" required />
+    </dd>
+    <dt>Straat :</dt>
+    <dd>
+      <Input @value={{this.newStraat}} @placeholder="straat" required />
+    </dd>
+    <dt>Huisnummer :</dt>
+    <dd>
+      <Input @value={{this.newHuisnr}} @placeholder="huisnr" required />
+    </dd>
+    <dt>Postcode :</dt>
+    <dd>
+      <Input @value={{this.newPostcode}} @placeholder="postcode" required />
+    </dd>
+    <dt>Gemeente :</dt>
+    <dd>
+      <Input @value={{this.newGemeente}} @placeholder="gemeente" required />
+    </dd>
+    <dt>Type :</dt>
+    <dd>
+      <Input @value={{this.newType}} @placeholder="type" required />
+    </dd>
+  </dl>
+  <button type="submit">Create</button>
+</form>

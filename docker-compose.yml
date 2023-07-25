@@ -1,21 +1,6 @@
-version: '3.4'
+version: "3.4"
 
 services:
-  python:
-    image: localhost/python-rdf-workshop:latest
-    build:
-      context: ./
-      dockerfile: docker/Dockerfile
-    environment:
-      - FLASK_DEBUG=1
-    volumes:
-      - "./api:/app/api"
-    ports:
-      - "5000:5000"
-  login:
-    image: semtech/mu-login-service:2.8.0
-    links:
-      - database:database
   identifier:
     image: semtech/mu-identifier:1.9.1
     environment:
@@ -46,9 +31,10 @@ services:
       - database:database
     volumes:
       - ./config/resources:/config
+
   emberjs:
     build:
-      context: ./frontend
+      context: ./frontend/
       dockerfile: docker/Dockerfile
     ports:
       - 4200:4200

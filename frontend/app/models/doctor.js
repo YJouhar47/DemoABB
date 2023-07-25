@@ -1,12 +1,10 @@
 import Model, { attr } from '@ember-data/model';
 
 export default class DoctorModel extends Model {
-  // @attr recordid;
-  @attr naam;
-  // @attr postcode;
-  // @attr huisnr;
-  // @attr type;
-  @attr straat;
-  // @attr gemeente;
-  // @attr geometry;
+  @attr('string') naam;
+  @attr('string') straat;
+  @attr('number') huisnr;
+  @attr('number') postcode;
+  @attr('string') gemeente;
+  @attr('string') type;
 }
