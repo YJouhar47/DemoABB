@@ -1,1 +1,7 @@
 <Doctor::Detailed @doctor={{@model}} />
+<div>
+    {{#each @model as |doctor|}}
+    <p>{{doctor.naam}}</p>
+    <p>{{doctor.straat}}</p>
+    {{/each}}
+</div>

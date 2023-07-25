@@ -3,42 +3,28 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class ExpenseController extends Controller {
-  @tracked id;
-  @tracked type;
-  @tracked naam;
-  @tracked gemeente;
-  @tracked huisnr;
-  @tracked straat;
-  @tracked postcode;
-  @tracked lat;
-  @tracked lng;
+export default class DoctorController extends Controller {
+  @tracked newNaam = '';
+  @tracked newStraat = '';
+//   @tracked postcode;
+//   @tracked huisnr;
 
-
-  @service store
+  @service store;
 
   @action
-  createExpense(event) {
+  createDoctor(event) {
     event.preventDefault();
-
-    if (this.naam === "") return;
 
     const doctor = this.store.createRecord('doctor', {
-      id: this.id,
-      type: this.type,
-      naam: this.naam,
-      gemeente: this.gemeente,
-      huisnr: this.huisnr,
-      straat: this.postcode,
-      lat: this.lat,
-      lng: this.lng
+      naam: this.newNaam,
+      straat: this.newStraat,
+      //   postcode: this.postcode,
+      //   huisnr: this.huisnr,
     });
     doctor.save();
+
+    this.newNaam = '';
+    this.newStraat = '';
   }
 
-  @action
-  removeExpense(doctor, event) {
-    event.preventDefault();
-    doctor.destroyRecord();
-  }
 }

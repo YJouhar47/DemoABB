@@ -1,17 +1,22 @@
-FROM node:18.16.1
+FROM node:18.6
 
-COPY ./ ./frontend
-
+# Define the working director
 WORKDIR ./frontend
 
+# Clone package.json and package-lock.json
 COPY package*.json ./
 
+# Set up all the dependencies
+RUN npm install --legacy-peer-deps
 
+# Globally set up Ember CLI
+RUN npm install -g ember-cli
 
-RUN npm install 
-
-RUN npm run build
-
-CMD npm start --openssl-legacy-provider 
-
+# Make the application’s port accessible
 EXPOSE 4200
+
+# Launch the application
+ENTRYPOINT ["ember", "serve", "--proxy", "http://doctor-dispatcher-1:80"]
+
+# Clone all files
+COPY . .
