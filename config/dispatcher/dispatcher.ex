@@ -13,10 +13,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/doctors/"
   end
 
-  match "/vestiging/*path" do
-    Proxy.forward conn, path, "http://resource/doctors/"
+  match "/praktijken/*path" do
+    Proxy.forward conn, path, "http://resource/praktijken/"
   end
-  
+
   match "/*_", %{ last_call: true } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

@@ -1,0 +1,32 @@
+<Jumbo>
+  <h2>Create a new doctor</h2>
+<form {{on "submit" this.createDoctor}}>
+  <dl>
+    <dt>Naam : </dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newNaam}} @placeholder="naam" required />
+    </dd>
+    <dt>Straat :</dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newStraat}} @placeholder="straat" required />
+    </dd>
+    <dt>Huisnummer :</dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newHuisnr}} @placeholder="huisnr" required />
+    </dd>
+    <dt>Postcode :</dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newPostcode}} @placeholder="postcode" required />
+    </dd>
+    <dt>Gemeente :</dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newGemeente}} @placeholder="gemeente" required />
+    </dd>
+    <dt>Praktijk :</dt>
+    <dd>
+      <Input class="inputfield" @value={{this.newPraktijk}} @placeholder="praktijk" required />
+    </dd>
+  </dl>
+  <button class="button" type="submit">Create</button>
+</form>
+</Jumbo>

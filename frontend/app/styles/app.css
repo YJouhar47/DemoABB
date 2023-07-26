@@ -9,6 +9,18 @@
   padding: 0;
 }
 
+.form {
+  
+}
+.inputfield {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 body,
 h1,
 h2,
@@ -24,6 +36,7 @@ button {
   font-family: Lato, "Open Sans", "Helvetica Neue", "Segoe UI", Helvetica, Arial,
     sans-serif;
   line-height: 1.5;
+  justify-content: center;
 }
 
 body {
@@ -211,6 +224,10 @@ p {
   margin-top: -25px;
 }
 
+h2 {
+  color: green
+}
+
 .jumbo p,
 .jumbo address {
   margin-bottom: 25px;
@@ -219,7 +236,7 @@ p {
 .jumbo img {
   height: 200px;
   position: relative;
-  top: -25px;
+  top: 25px;
   right: -20px;
 }
 
@@ -351,8 +368,8 @@ p {
 }
 
 .rental .map img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 .rental.detailed {

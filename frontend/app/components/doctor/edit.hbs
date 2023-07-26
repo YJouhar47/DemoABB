@@ -1,5 +1,8 @@
-<h1 class='text-3xl'>Edit Doctor</h1>
-<div class="rentals">
+
+{{yield}}
+<Jumbo>
+<h2>  {{@doctor.naam}} </h2>
+</Jumbo>
 <form {{on "submit" (fn this.editDoctor @doctor)}}>
   <dl>
     <dt>Naam : </dt>
@@ -16,18 +19,16 @@
     </dd>
     <dt>Postcode :</dt>
     <dd>
-      <Input @value={{@doctor.huisnr}} @placeholder="postcode" required />
+      <Input @value={{@doctor.postcode}} @placeholder="postcode" required />
     </dd>
     <dt>Gemeente :</dt>
     <dd>
       <Input @value={{@doctor.gemeente}} @placeholder="gemeente" required />
     </dd>
-    <dt>Type :</dt>
+    <dt>Praktijk :</dt>
     <dd>
-      <Input @value={{@doctor.type}} @placeholder="type" required />
+      <Input @value={{@doctor.praktijk}} @placeholder="type" required />
     </dd>
   </dl>
   <button class="button" type="submit">Save</button>
 </form>
-</div>
-{{outlet}}

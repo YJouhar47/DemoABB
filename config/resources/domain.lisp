@@ -8,10 +8,10 @@
                 (:postcode :integer ,(s-prefix "schema:postcode"))
                 (:gemeente :string ,(s-prefix "schema:gemeente"))
                 (:praktijk :string, (s-prefix "schema:praktijk")))
-              :has-one `((praktijk :via,(s-prefix "schema:praktijk")
-              :as "praktijk"))`
+  :has-one `((praktijk :via ,(s-prefix "schema:praktijk")
+                       :as "praktijk"))
   :resource-base (s-url "http://mu.semte.ch/application/doctor-app")
-:on-path "doctors")
+  :on-path "doctors")
 
 (define-resource praktijk ()
   :class (s-prefix "schema:Praktijk")
@@ -21,8 +21,9 @@
                 (:postcode :integer ,(s-prefix "schema:postcode"))
                 (:gemeente :string ,(s-prefix "schema:gemeente"))
                 (:type :string ,(s-prefix "schema:type")))
-                :has-many `((doctor :via (s-prefix "schema:Praktijk")
-                :inverse t
-                :as "doctors"))
+  :has-many `((doctor :via (s-prefix "schema:praktijk")
+                      :inverse t
+                      :as "doctors"))
   :resource-base (s-url "http://mu.semte.ch/application/doctor-app")
-:on-path "Praktijk")
+  :on-path "praktijken")
+

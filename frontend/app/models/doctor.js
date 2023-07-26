@@ -6,5 +6,5 @@ export default class DoctorModel extends Model {
   @attr('number') huisnr;
   @attr('number') postcode;
   @attr('string') gemeente;
-  @attr('string') type;
+  @attr('string') praktijk;
 }

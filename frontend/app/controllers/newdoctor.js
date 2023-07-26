@@ -9,9 +9,7 @@ export default class DoctorController extends Controller {
   @tracked newHuisnr;
   @tracked newPostcode;
   @tracked newGemeente;
-  @tracked newType;
-  @tracked isEditing = false;
-  @tracked doctorToUpdate = null;
+  @tracked newPraktijk
 
   @service store;
 
@@ -25,7 +23,7 @@ export default class DoctorController extends Controller {
       huisnr: this.newHuisnr,
       postcode: this.newPostcode,
       gemeente: this.newGemeente,
-      type: this.newType,
+      praktijk: this.newPraktijk,
     });
     doctor.save();
 
@@ -37,6 +35,6 @@ export default class DoctorController extends Controller {
     this.newHuisnr = 0;
     this.newPostcode = 0;
     this.newGemeente = '';
-    this.newType = '';
+    this.newPraktijk = '';
   }
 }
