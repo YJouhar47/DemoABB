@@ -1,0 +1,11 @@
+<div class="container">
+  <NavBar />
+  <div class="body">
+    <h1>All Doctors</h1>
+    {{#each @model as |doctor|}}
+      <Doctors @doctor={{doctor}}></Doctors>
+    {{/each}}
+
+  </div>
+</div>
+{{outlet}}

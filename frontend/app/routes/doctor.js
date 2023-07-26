@@ -4,6 +4,6 @@ export default class DoctorRoute extends Route {
   @service store;
 
   async model() {
-    return this.store.findAll('doctor');
+    return this.store.findRecord('doctor', params.doctor_id);
   }
 }

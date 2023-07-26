@@ -1,0 +1,33 @@
+<div class="container">
+<NavBar/>
+<form {{on "submit" this.createDoctor}}>
+  <dl>
+    <dt>Naam : </dt>
+    <dd>
+      <Input @value={{this.newNaam}} @placeholder="naam" required />
+    </dd>
+    <dt>Straat :</dt>
+    <dd>
+      <Input @value={{this.newStraat}} @placeholder="straat" required />
+    </dd>
+    <dt>Huisnummer :</dt>
+    <dd>
+      <Input @value={{this.newHuisnr}} @placeholder="huisnr" required />
+    </dd>
+    <dt>Postcode :</dt>
+    <dd>
+      <Input @value={{this.newPostcode}} @placeholder="postcode" required />
+    </dd>
+    <dt>Gemeente :</dt>
+    <dd>
+      <Input @value={{this.newGemeente}} @placeholder="gemeente" required />
+    </dd>
+    <dt>Type :</dt>
+    <dd>
+      <Input @value={{this.newType}} @placeholder="type" required />
+    </dd>
+  </dl>
+  <button class="button" type="submit">Create</button>
+</form>
+{{outlet}}
+</div>

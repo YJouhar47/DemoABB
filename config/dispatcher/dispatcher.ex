@@ -10,7 +10,11 @@ defmodule Dispatcher do
   @html %{ accept: %{ html: true } }
 
   match "/doctors/*path" do
-    Proxy.forward conn, path, "http://resource/doctors"
+    Proxy.forward conn, path, "http://resource/doctors/"
+  end
+
+  match "/vestiging/*path" do
+    Proxy.forward conn, path, "http://resource/doctors/"
   end
   
   match "/*_", %{ last_call: true } do

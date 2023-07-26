@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+
 export default class DoctorController extends Controller {
   @tracked newNaam;
   @tracked newStraat;
@@ -9,6 +10,8 @@ export default class DoctorController extends Controller {
   @tracked newPostcode;
   @tracked newGemeente;
   @tracked newType;
+  @tracked isEditing = false;
+  @tracked doctorToUpdate = null;
 
   @service store;
 
@@ -26,17 +29,14 @@ export default class DoctorController extends Controller {
     });
     doctor.save();
 
+    this.clearForm();
+  }
+  clearForm() {
     this.newNaam = '';
     this.newStraat = '';
     this.newHuisnr = 0;
     this.newPostcode = 0;
     this.newGemeente = '';
     this.newType = '';
-  }
-
-  @action
-  removeDoctor(doctor, event) {
-    event.preventDefault();
-    doctor.destroyRecord();
   }
 }
