@@ -52,14 +52,10 @@
       <dd>
         <select
           class="inputfield"
-          {{on
-            "change"
-            (action (mut this.selectedPracticeId) value="target.value")
-          }}
-        >
+          {{on "change" this.selectPractice}}>
           <option value="">Selecteer een praktijk</option>
-          {{#each @model as |doctor|}}
-            <option value={{doctor.practice.name}}>{{doctor.practice.name}}</option>
+          {{#each this.practices as |practice|}}
+            <option value={{practice.id}}>{{practice.name}}</option>
           {{/each}}
         </select>
       </dd>

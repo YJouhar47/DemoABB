@@ -21,19 +21,21 @@
     </div>
 
     {{#if @doctor.practice}}
-      {{!-- The doctor has an associated practice --}}
       <div class="detail location">
         <span>Praktijk : </span>
-        {{@doctor.practice.name}} {{!-- Assuming the practice has a 'name' property --}}
+        {{@doctor.practice.name}}
       </div>
     {{else}}
-      {{!-- The doctor does not have an associated practice --}}
+
       <div class="detail location">
         <span>Praktijk : </span>
         No associated practice found.
       </div>
     {{/if}}
 
-    <button class="button" {{on "click" (fn this.removeDoctor @doctor)}}>Remove</button>
+    <button
+      class="button"
+      {{on "click" (fn this.removeDoctor @doctor)}}
+    >Remove</button>
   </div>
 </div>

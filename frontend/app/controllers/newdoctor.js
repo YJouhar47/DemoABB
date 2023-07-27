@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { expandProperties } from '@ember/object/computed';
 
 export default class DoctorsController extends Controller {
   @tracked newName;
@@ -9,42 +10,50 @@ export default class DoctorsController extends Controller {
   @tracked newHousenumber;
   @tracked newPostalcode;
   @tracked newCity;
-  @tracked selectedPracticeId; // Track the selected practice ID in the dropdown
+  @tracked practices;
+  @tracked newPractice;
 
   @service store;
+
+  constructor() {
+    super(...arguments);
+  }
+
+  async init() {
+    super.init();
+
+    try {
+        this.practices = await this.store.findAll('practice');
+    }
+    catch (error) {
+        console.log('Error fetching practices : ', error)
+    }
+  }
+
+  @action
+  async selectPractice(event) {
+    const selectedPracticeId = event.target.value;
+    this.existingPractice = await this.store.findRecord('practice', selectedPracticeId)
+  }
 
   @action
   async createDoctor(event) {
     event.preventDefault();
 
-    // Ensure the selectedPracticeId is set
-    if (!this.selectedPracticeId) {
-      console.log(this.selectedPracticeId);
-      console.error('No practice selected.');
-      return;
-    }
-
-    // Resolve the selected practice record using this.store.findRecord
-    try {
-      const selectedPractice = await this.store.findRecord('practice', this.selectedPracticeId);
-
-      // Create a new doctor record with the selected practice
       const doctor = this.store.createRecord('doctor', {
         name: this.newName,
         street: this.newStreet,
         housenumber: this.newHousenumber,
         postalcode: this.newPostalcode,
         city: this.newCity,
-        practice: selectedPractice, // Associate the resolved practice record
       });
-
       await doctor.save();
-
+      doctor.practice = this.existingPractice;
+      await doctor.save();
       this.clearForm();
-    } catch (error) {
-      console.error('Error creating doctor:', error);
-    }
   }
+
+
 
   clearForm() {
     this.newName = '';
@@ -52,6 +61,5 @@ export default class DoctorsController extends Controller {
     this.newHousenumber = 0;
     this.newPostalcode = 0;
     this.newCity = '';
-    this.selectedPracticeId = ''; // Clear the selected practice ID
   }
 }

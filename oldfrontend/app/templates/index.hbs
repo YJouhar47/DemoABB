@@ -1,0 +1,10 @@
+<Jumbo>
+  <h2>All Doctors</h2>
+    {{#each @model as |doctor|}}
+      <Doctors @doctor={{doctor}}></Doctors>
+    {{/each}} 
+ <h2>All Practices </h2>
+    {{#each @model as |practice|}}
+    <Practices @practice={{practice}}></Practices>
+    {{/each}}
+</Jumbo>

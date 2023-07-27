@@ -1,0 +1,39 @@
+<div class="rental detailed">
+  <div class="details">
+    <LinkTo @route="doctor" @model={{@doctor}}>
+      <h3>Dr. {{@doctor.name}}</h3>
+    </LinkTo>
+    <div class="detail owner">
+      <span>Straat : </span>
+      {{@doctor.street}}
+    </div>
+    <div class="detail location">
+      <span>Huisnummer : </span>
+      {{@doctor.housenumber}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Postcode : </span>
+      {{@doctor.postalcode}}
+    </div>
+    <div class="detail owner">
+      <span>Gemeente : </span>
+      {{@doctor.city}}
+    </div>
+
+    {{#if @doctor.practice}}
+      {{!-- The doctor has an associated practice --}}
+      <div class="detail location">
+        <span>Praktijk : </span>
+        {{@doctor.practice.name}} {{!-- Assuming the practice has a 'name' property --}}
+      </div>
+    {{else}}
+      {{!-- The doctor does not have an associated practice --}}
+      <div class="detail location">
+        <span>Praktijk : </span>
+        No associated practice found.
+      </div>
+    {{/if}}
+
+    <button class="button" {{on "click" (fn this.removeDoctor @doctor)}}>Remove</button>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class PracticeController extends Controller {
-  @tracked newPractice;
+  @tracked newName;
   @tracked newStreet;
   @tracked newHousenumber;
   @tracked newPostalcode;
@@ -18,7 +18,7 @@ export default class PracticeController extends Controller {
     event.preventDefault();
 
     const practice = this.store.createRecord('practice', {
-      practice: this.newPractice,
+      name: this.newName,
       street: this.newStreet,
       housenumber: this.newHousenumber,
       postalcode: this.newPostalcode,
@@ -30,7 +30,7 @@ export default class PracticeController extends Controller {
     this.clearForm();
   }
   clearForm() {
-    this.newPractice = '';
+    this.newName = '';
     this.newStreet = '';
     this.newHousenumber = 0;
     this.newPostalcode = 0;
