@@ -3,38 +3,55 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class DoctorController extends Controller {
-  @tracked newNaam;
-  @tracked newStraat;
-  @tracked newHuisnr;
-  @tracked newPostcode;
-  @tracked newGemeente;
-  @tracked newPraktijk
+export default class DoctorsController extends Controller {
+  @tracked newName;
+  @tracked newStreet;
+  @tracked newHousenumber;
+  @tracked newPostalcode;
+  @tracked newCity;
+  @tracked selectedPracticeId; // Track the selected practice ID in the dropdown
 
   @service store;
 
   @action
-  createDoctor(event) {
+  async createDoctor(event) {
     event.preventDefault();
 
-    const doctor = this.store.createRecord('doctor', {
-      naam: this.newNaam,
-      straat: this.newStraat,
-      huisnr: this.newHuisnr,
-      postcode: this.newPostcode,
-      gemeente: this.newGemeente,
-      praktijk: this.newPraktijk,
-    });
-    doctor.save();
+    // Ensure the selectedPracticeId is set
+    if (!this.selectedPracticeId) {
+      console.log(this.selectedPracticeId);
+      console.error('No practice selected.');
+      return;
+    }
 
-    this.clearForm();
+    // Resolve the selected practice record using this.store.findRecord
+    try {
+      const selectedPractice = await this.store.findRecord('practice', this.selectedPracticeId);
+
+      // Create a new doctor record with the selected practice
+      const doctor = this.store.createRecord('doctor', {
+        name: this.newName,
+        street: this.newStreet,
+        housenumber: this.newHousenumber,
+        postalcode: this.newPostalcode,
+        city: this.newCity,
+        practice: selectedPractice, // Associate the resolved practice record
+      });
+
+      await doctor.save();
+
+      this.clearForm();
+    } catch (error) {
+      console.error('Error creating doctor:', error);
+    }
   }
+
   clearForm() {
-    this.newNaam = '';
-    this.newStraat = '';
-    this.newHuisnr = 0;
-    this.newPostcode = 0;
-    this.newGemeente = '';
-    this.newPraktijk = '';
+    this.newName = '';
+    this.newStreet = '';
+    this.newHousenumber = 0;
+    this.newPostalcode = 0;
+    this.newCity = '';
+    this.selectedPracticeId = ''; // Clear the selected practice ID
   }
 }

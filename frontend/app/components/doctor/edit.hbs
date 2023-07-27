@@ -1,33 +1,27 @@
 
 {{yield}}
-<Jumbo>
-<h2>  {{@doctor.naam}} </h2>
-</Jumbo>
+<h2>  {{@doctor.name}} </h2>
 <form {{on "submit" (fn this.editDoctor @doctor)}}>
   <dl>
     <dt>Naam : </dt>
     <dd>
-      <Input @value={{@doctor.naam}} @placeholder="naam" required />
+      <Input class="inputfield" @value={{@doctor.name}} @placeholder="naam" required />
     </dd>
     <dt>Straat :</dt>
     <dd>
-      <Input @value={{@doctor.straat}} @placeholder="straat" required />
+      <Input class="inputfield" @value={{@doctor.street}} @placeholder="straat" required />
     </dd>
     <dt>Huisnummer :</dt>
     <dd>
-      <Input @value={{@doctor.huisnr}} @placeholder="huisnr" required />
+      <Input class="inputfield" @value={{@doctor.housenumber}} @placeholder="huisnr" required />
     </dd>
     <dt>Postcode :</dt>
     <dd>
-      <Input @value={{@doctor.postcode}} @placeholder="postcode" required />
+      <Input class="inputfield" @value={{@doctor.postalcode}} @placeholder="postcode" required />
     </dd>
     <dt>Gemeente :</dt>
     <dd>
-      <Input @value={{@doctor.gemeente}} @placeholder="gemeente" required />
-    </dd>
-    <dt>Praktijk :</dt>
-    <dd>
-      <Input @value={{@doctor.praktijk}} @placeholder="type" required />
+      <Input class="inputfield" @value={{@doctor.city}} @placeholder="gemeente" required />
     </dd>
   </dl>
   <button class="button" type="submit">Save</button>

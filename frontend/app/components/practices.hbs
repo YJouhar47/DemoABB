@@ -1,0 +1,32 @@
+<div class="rental detailed">
+  <div class="details">
+    <LinkTo @route="practice" @model={{@practice}}>
+      <h3>{{@practice.practice}}</h3>
+    </LinkTo>
+    <div class="detail owner">
+      <span>Straat : </span>
+      {{@practice.street}}
+    </div>
+    <div class="detail location">
+      <span>Huisnummer : </span>
+      {{@practice.housenumber}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Postcode : </span>
+      {{@practice.postalcode}}
+    </div>
+    <div class="detail owner">
+      <span>Gemeente : </span>
+      {{@practice.city}}
+    </div>
+    <div class="detail location">
+      <span>Type : </span>
+      {{@practice.type}}
+    </div>
+      <button
+      class="button"
+      {{on "click" (fn this.removePractice @practice)}}
+    >Remove</button>
+  </div>
+
+</div>

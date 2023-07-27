@@ -13,8 +13,8 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/doctors/"
   end
 
-  match "/praktijken/*path" do
-    Proxy.forward conn, path, "http://resource/praktijken/"
+  match "/practices/*path" do
+    Proxy.forward conn, path, "http://resource/practices/"
   end
 
   match "/*_", %{ last_call: true } do
