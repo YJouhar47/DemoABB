@@ -1,9 +1,8 @@
 {{page-title "Add new doctor"}}
 
 <Jumbo>
-  <h2>Voeg een nieuwe dokter toe</h2>
-  
-  <form {{on "submit" this.createDoctor}}>
+  <h2 class="text-5xl">Voeg een nieuwe dokter toe</h2>
+  <form {{on "submit" this.createDoctor}} class="w-full max-w-lg">
     <dt>Naam:</dt>
     <dd>
       <Input
@@ -64,6 +63,6 @@
         {{/each}}
       </select>
     </dd>
-    <button class="button" type="submit">Create</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Create</button>
   </form>
 </Jumbo>
