@@ -7,6 +7,9 @@ export default class ApplicationRoute extends Route {
 
   @action
   async model() {
-    return this.store.query("doctor", { include: "practice" })
+    return {
+      doctor: await this.store.findAll('doctor'),
+      practice:await  this.store.findAll('practice'),
+    };
   }
 }

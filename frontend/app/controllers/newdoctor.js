@@ -14,6 +14,7 @@ export default class DoctorsController extends Controller {
   @tracked newPractice;
 
   @service store;
+  @service router;
 
   constructor() {
     super(...arguments);
@@ -50,16 +51,7 @@ export default class DoctorsController extends Controller {
       await doctor.save();
       doctor.practice = this.existingPractice;
       await doctor.save();
-      this.clearForm();
-  }
-
-
-
-  clearForm() {
-    this.newName = '';
-    this.newStreet = '';
-    this.newHousenumber = 0;
-    this.newPostalcode = 0;
-    this.newCity = '';
+      this.router.transitionTo('/');
+      
   }
 }

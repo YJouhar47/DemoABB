@@ -1,6 +1,11 @@
+{{page-title "Doctors"}}
 <Jumbo>
   <h2>All Doctors</h2>
-    {{#each @model as |doctor|}}
-      <Doctors @doctor={{doctor}}></Doctors>
-    {{/each}} 
+  {{#each @model.doctor as |doctor|}}
+    <Doctors @doctor={{doctor}} />
+  {{/each}}
+  <h2>All Practices</h2>
+  {{#each @model.practice as |practice|}}
+    <Practices @practice={{practice}} />
+  {{/each}}
 </Jumbo>

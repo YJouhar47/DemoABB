@@ -1,65 +1,69 @@
+{{page-title "Add new doctor"}}
+
 <Jumbo>
   <h2>Voeg een nieuwe dokter toe</h2>
+  
   <form {{on "submit" this.createDoctor}}>
-    <dl>
-      <dt>Naam:</dt>
-      <dd>
-        <Input
-          class="inputfield"
-          @value={{this.newName}}
-          @placeholder="naam"
-          required
-        />
-      </dd>
-      <dt>Straat:</dt>
-      <dd>
-        <Input
-          class="inputfield"
-          @value={{this.newStreet}}
-          @placeholder="straat"
-          required
-        />
-      </dd>
-      <dt>Huisnummer:</dt>
-      <dd>
-        <Input
-          class="inputfield"
-          @value={{this.newHousenumber}}
-          @placeholder="huisnr"
-          required
-        />
-      </dd>
-      <dt>Postcode:</dt>
-      <dd>
-        <Input
-          class="inputfield"
-          @value={{this.newPostalcode}}
-          @placeholder="postcode"
-          required
-        />
-      </dd>
-      <dt>Gemeente:</dt>
-      <dd>
-        <Input
-          class="inputfield"
-          @value={{this.newCity}}
-          @placeholder="gemeente"
-          required
-        />
-      </dd>
+    <dt>Naam:</dt>
+    <dd>
+      <Input
+        @value={{this.newName}}
+        @placeholder="naam"
+        class="inputfield"
+        type="text"
+        required
+      />
+    </dd>
+    <dt>Straat:</dt>
+    <dd>
+      <Input
+        class="inputfield"
+        @value={{this.newStreet}}
+        @placeholder="straat"
+        type="text"
+        required
+      />
+    </dd>
+    <dt>Huisnummer:</dt>
+    <dd>
+      <Input
+        class="inputfield"
+        @value={{this.newHousenumber}}
+        @placeholder="huisnr"
+        type="number"
+        required
+      />
+    </dd>
+    <dt>Postcode:</dt>
+    <dd>
+      <Input
+        class="inputfield"
+        @value={{this.newPostalcode}}
+        @placeholder="postcode"
+        type="number"
+        required
+      />
+    </dd>
+    <dt>Gemeente:</dt>
+    <dd>
+      <Input
+        class="inputfield"
+        @value={{this.newCity}}
+        @placeholder="gemeente"
+        type="text"
+        required
+      />
+    </dd>
 
-      <dt>Praktijk:</dt>
-      <dd>
-        <select
-          class="inputfield"
-          {{on "change" this.selectPractice}}>
-          <option value="">Selecteer een praktijk</option>
-          {{#each this.practices as |practice|}}
-            <option value={{practice.id}}>{{practice.name}}</option>
-          {{/each}}
-        </select>
-      </dd>
-    </dl>
+    <dt>Praktijk:</dt>
+    <dd>
+      <select class="inputfield" {{on "change" this.selectPractice}}>
+        <option value="">Selecteer een praktijk</option>
+        {{#each this.practices as |practice|}}
+          <option value={{practice.id}}>{{practice.name}}</option>
+        {{/each}}
+      </select>
+    </dd>
     <button class="button" type="submit">Create</button>
   </form>
 </Jumbo>

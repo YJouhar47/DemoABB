@@ -4,31 +4,31 @@
       <h3>Dr. {{@doctor.name}}</h3>
     </LinkTo>
     <div class="detail owner">
-      <span>Straat : </span>
+      <span>Street : </span>
       {{@doctor.street}}
     </div>
     <div class="detail location">
-      <span>Huisnummer : </span>
+      <span>Housenumber : </span>
       {{@doctor.housenumber}}
     </div>
     <div class="detail bedrooms">
-      <span>Postcode : </span>
+      <span>Postalcode : </span>
       {{@doctor.postalcode}}
     </div>
     <div class="detail owner">
-      <span>Gemeente : </span>
+      <span>City : </span>
       {{@doctor.city}}
     </div>
 
     {{#if @doctor.practice}}
       <div class="detail location">
-        <span>Praktijk : </span>
+        <span>Practice : </span>
         {{@doctor.practice.name}}
       </div>
     {{else}}
 
       <div class="detail location">
-        <span>Praktijk : </span>
+        <span>Practice : </span>
         No associated practice found.
       </div>
     {{/if}}
