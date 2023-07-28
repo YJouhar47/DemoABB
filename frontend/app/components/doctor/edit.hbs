@@ -24,5 +24,15 @@
       <Input class="inputfield" @value={{@doctor.city}} @placeholder="gemeente" required />
     </dd>
   </dl>
+
+      <dt>Praktijk:</dt>
+    <dd>
+      <select class="inputfield" {{on "change" this.selectPractice}}>
+        <option value="">Selecteer een praktijk</option>
+        {{#each this.practices as |practice|}}
+          <option value={{practice.id}}>{{practice.name}}</option>
+        {{/each}}
+      </select>
+    </dd>
   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Save</button>
 </form>

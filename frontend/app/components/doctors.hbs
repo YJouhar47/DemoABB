@@ -1,41 +1,40 @@
-<div class="rental detailed">
-  <div class="details">
-    <LinkTo @route="doctor" @model={{@doctor}}>
-      <h3>Dr. {{@doctor.name}}</h3>
-    </LinkTo>
-    <div class="detail owner">
-      <span>Street : </span>
-      {{@doctor.street}}
-    </div>
-    <div class="detail location">
-      <span>Housenumber : </span>
-      {{@doctor.housenumber}}
-    </div>
-    <div class="detail bedrooms">
-      <span>Postalcode : </span>
-      {{@doctor.postalcode}}
-    </div>
-    <div class="detail owner">
-      <span>City : </span>
-      {{@doctor.city}}
-    </div>
-
-    {{#if @doctor.practice}}
-      <div class="detail location">
-        <span>Practice : </span>
-        {{@doctor.practice.name}}
+<div class="flex items-center justify-center mt-6">
+    <div class="details">
+      <LinkTo @route="doctor" @model={{@doctor}}>
+        <h3 class="text-2xl font-bold">Dr. {{@doctor.name}}</h3>
+      </LinkTo>
+      <div class="my-2">
+        <span>Street : </span>
+        {{@doctor.street}}
       </div>
-    {{else}}
-
-      <div class="detail location">
-        <span>Practice : </span>
-        No associated practice found.
+      <div class="my-2">
+        <span>Housenumber : </span>
+        {{@doctor.housenumber}}
       </div>
-    {{/if}}
+      <div class="my-2">
+        <span>Postalcode : </span>
+        {{@doctor.postalcode}}
+      </div>
+      <div class="my-2">
+        <span>City : </span>
+        {{@doctor.city}}
+      </div>
 
-    <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      {{on "click" (fn this.removeDoctor @doctor)}}
-    >Remove</button>
-  </div>
+      {{#if @doctor.practice}}
+        <div class="my-2">
+          <span>Practice : </span>
+          {{@doctor.practice.name}}
+        </div>
+      {{else}}
+        <div class="my-2">
+          <span>Practice : </span>
+          No associated practice found.
+        </div>
+      {{/if}}
+
+      <button
+        class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        {{on "click" (fn this.removeDoctor @doctor)}}
+      >Remove</button>
+    </div>
 </div>

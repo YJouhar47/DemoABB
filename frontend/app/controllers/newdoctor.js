@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { expandProperties } from '@ember/object/computed';
 
 export default class DoctorsController extends Controller {
   @tracked newName;

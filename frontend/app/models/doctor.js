@@ -1,4 +1,4 @@
-import Model, { attr , belongsTo} from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class DoctorModel extends Model {
   @attr('string') name;
@@ -6,6 +6,7 @@ export default class DoctorModel extends Model {
   @attr('number') housenumber;
   @attr('number') postalcode;
   @attr('string') city;
-  @belongsTo('practice', { async: true, inverse: null }) practice;
-
+  
+  // Correct belongsTo relationship definition
+  @belongsTo('practice', { async: true, inverse: 'doctors' }) practice;
 }

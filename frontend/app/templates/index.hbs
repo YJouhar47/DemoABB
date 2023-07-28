@@ -1,11 +1,12 @@
-{{page-title "Doctors"}}
-<Jumbo>
-  <h2>All Doctors</h2>
-  {{#each @model.doctor as |doctor|}}
-    <Doctors @doctor={{doctor}} />
-  {{/each}}
-  <h2>All Practices</h2>
-  {{#each @model.practice as |practice|}}
-    <Practices @practice={{practice}} />
-  {{/each}}
-</Jumbo>
+<div class="flex flex-col items-center justify-center mt-2">
+  <Jumbo>
+    <h2 class="text-5xl font-bold">All Doctors</h2>
+    {{#each @model.doctor as |doctor|}}
+      <Doctors @doctor={{doctor}} />
+    {{/each}}
+    <h2>All Practices</h2>
+    {{#each @model.practice as |practice|}}
+      <Practices @practice={{practice}} />
+    {{/each}}
+  </Jumbo>
+</div>

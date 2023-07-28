@@ -1,4 +1,5 @@
-import Model, { attr,hasMany } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
+
 export default class PracticeModel extends Model {
   @attr('string') name;
   @attr('string') street;
@@ -6,6 +7,5 @@ export default class PracticeModel extends Model {
   @attr('number') postalcode;
   @attr('string') city;
   @attr('string') type;
-  @hasMany('doctors', { async: true, inverse: null }) doctors;
-
+  @hasMany('doctor', { async: true, inverse: 'practice' }) doctors;
 }

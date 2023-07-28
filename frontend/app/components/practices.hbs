@@ -23,10 +23,11 @@
       <span>Type : </span>
       {{@practice.type}}
     </div>
-    <h1>{{@practice.doctor.name}}</h1>
-    
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      {{on "click" (fn this.removePractice @practice)}}
+    <h1>{{@practice.doctors}}</h1>
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      {{on "click" (fn this.removePractice)}}
     >Remove</button>
   </div>
 
