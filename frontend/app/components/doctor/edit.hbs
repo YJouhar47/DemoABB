@@ -30,6 +30,7 @@
       <select class="inputfield" {{on "change" this.selectPractice}}>
         <option value="">Selecteer een praktijk</option>
         {{#each this.practices as |practice|}}
+        {{practice}}
           <option value={{practice.id}}>{{practice.name}}</option>
         {{/each}}
       </select>

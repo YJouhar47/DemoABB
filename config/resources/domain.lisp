@@ -9,7 +9,7 @@
                 (:city :string ,(s-prefix "schema:city")))
   :has-one `((practice :via ,(s-prefix "schema:practice")
                        :as "practice"))
-  :resource-base (s-url "http://mu.semte.ch/application/doctors")
+  :resource-base (s-url "http://mu.semte.ch/application/doctors/")
   :on-path "doctors")
 
 (define-resource practice ()
@@ -20,8 +20,8 @@
                 (:postalcode :integer ,(s-prefix "schema:postalcode"))
                 (:city :string ,(s-prefix "schema:city"))
                 (:type :string ,(s-prefix "schema:type")))
-  :has-many `((doctor :via (s-prefix "schema:practice")
+  :has-many `((doctor :via ,(s-prefix "schema:practice")
                       :inverse t
                       :as "doctors"))
-  :resource-base (s-url "http://mu.semte.ch/application/practices")
+  :resource-base (s-url "http://mu.semte.ch/application/practices/")
   :on-path "practices")

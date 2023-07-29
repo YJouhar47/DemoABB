@@ -1,26 +1,25 @@
-<div class="rental detailed">
-  <div class="details">
+<div class="container">
     <LinkTo @route="practice" @model={{@practice}}>
-      <h3>{{@practice.name}}</h3>
+      <h3 class="text-2xl font-bold">{{@practice.name}}</h3>
     </LinkTo>
-    <div class="detail owner">
-      <span>Street : </span>
+    <div class="my-2">
+      <span class="font-bold">Street : </span>
       {{@practice.street}}
     </div>
-    <div class="detail location">
-      <span>Housenumber : </span>
+    <div class="my-2">
+      <span class="font-bold">Housenumber : </span>
       {{@practice.housenumber}}
     </div>
-    <div class="detail bedrooms">
-      <span>Postalcode : </span>
+    <div class="my-2">
+      <span class="font-bold">Postalcode : </span>
       {{@practice.postalcode}}
     </div>
-    <div class="detail owner">
-      <span>City : </span>
+    <div class="my-2">
+      <span class="font-bold">City : </span>
       {{@practice.city}}
     </div>
-    <div class="detail location">
-      <span>Type : </span>
+    <div class="my-2">
+      <span class="font-bold">Type : </span>
       {{@practice.type}}
     </div>
     {{!-- <h1>{{@practice.doctors}}</h1> --}}
@@ -29,6 +28,5 @@
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       {{on "click" (fn this.removePractice @practice)}}
     >Remove</button>
-  </div>
 
 </div>
