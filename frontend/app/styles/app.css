@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic");
+
 .inputfield {
   border: 1px solid #ccc;
   padding: 0.75rem 1rem;
@@ -15,11 +17,6 @@
   border-color: #6b46c1;
   box-shadow: 0 0 0 2px rgba(107, 70, 193, 0.2);
 }
-
-
-
-
-@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic");
 
 /**
  * Base Elements
@@ -95,7 +92,6 @@ p {
   background: #f9f9f9;
   display: flex;
   flex-direction: column;
-  flex-wrap: 1;
   justify-content: center;
   align-items: center;
 }

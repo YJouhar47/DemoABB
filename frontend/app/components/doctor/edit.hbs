@@ -1,39 +1,58 @@
-
 {{yield}}
-<h2>  {{@doctor.name}} </h2>
+<h2> {{@doctor.name}} </h2>
 <form {{on "submit" (fn this.editDoctor @doctor)}}>
   <dl>
     <dt>Name : </dt>
     <dd>
-      <Input class="inputfield" @value={{@doctor.name}} @placeholder="naam" required />
+      <Input class="inputfield" @value={{@doctor.name}} @placeholder="naam" />
     </dd>
     <dt>Street :</dt>
     <dd>
-      <Input class="inputfield" @value={{@doctor.street}} @placeholder="straat" required />
+      <Input
+        class="inputfield"
+        @value={{@doctor.street}}
+        @placeholder="straat"
+      />
     </dd>
     <dt>Housenumber :</dt>
     <dd>
-      <Input class="inputfield" @value={{@doctor.housenumber}} @placeholder="huisnr" required />
+      <Input
+        class="inputfield"
+        @value={{@doctor.housenumber}}
+        @placeholder="huisnr"
+      />
     </dd>
     <dt>Postalcode :</dt>
     <dd>
-      <Input class="inputfield" @value={{@doctor.postalcode}} @placeholder="postcode" required />
+      <Input
+        class="inputfield"
+        @value={{@doctor.postalcode}}
+        @placeholder="postcode"
+      />
     </dd>
     <dt>City :</dt>
     <dd>
-      <Input class="inputfield" @value={{@doctor.city}} @placeholder="gemeente" required />
+      <Input
+        class="inputfield"
+        @value={{@doctor.city}}
+        @placeholder="gemeente"
+      />
     </dd>
   </dl>
+  <dt>Praktijk:</dt>
 
-      <dt>Praktijk:</dt>
-    <dd>
-      <select class="inputfield" {{on "change" this.selectPractice}}>
-        <option value="">Selecteer een praktijk</option>
-        {{#each this.practices as |practice|}}
-        {{practice}}
-          <option value={{practice.id}}>{{practice.name}}</option>
-        {{/each}}
-      </select>
-    </dd>
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Save</button>
+  <dd>
+
+    <select class="inputfield" {{on "change" this.selectPractice}}>
+      <option value="">Selecteer een praktijk</option>
+      {{#each this.practices as |practice|}}
+        {{practice.name}}
+        <option value={{practice.id}}>{{practice.name}}</option>
+      {{/each}}
+    </select>
+  </dd>
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    type="submit"
+  >Save</button>
 </form>

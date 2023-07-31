@@ -23,34 +23,35 @@ export default class DoctorsController extends Controller {
     super.init();
 
     try {
-        this.practices = await this.store.findAll('practice');
-    }
-    catch (error) {
-        console.log('Error fetching practices : ', error)
+      this.practices = await this.store.findAll('practice');
+    } catch (error) {
+      console.log('Error fetching practices : ', error);
     }
   }
 
   @action
   async selectPractice(event) {
     const selectedPracticeId = event.target.value;
-    this.existingPractice = await this.store.findRecord('practice', selectedPracticeId)
+    this.existingPractice = await this.store.findRecord(
+      'practice',
+      selectedPracticeId
+    );
   }
 
   @action
   async createDoctor(event) {
     event.preventDefault();
 
-      const doctor = this.store.createRecord('doctor', {
-        name: this.newName,
-        street: this.newStreet,
-        housenumber: this.newHousenumber,
-        postalcode: this.newPostalcode,
-        city: this.newCity,
-      });
-      await doctor.save();
-      doctor.practice = this.existingPractice;
-      await doctor.save();
-      this.router.transitionTo('/');
-      
+    const doctor = this.store.createRecord('doctor', {
+      name: this.newName,
+      street: this.newStreet,
+      housenumber: this.newHousenumber,
+      postalcode: this.newPostalcode,
+      city: this.newCity,
+    });
+    await doctor.save();
+    doctor.practice = this.existingPractice;
+    await doctor.save();
+    this.router.transitionTo('/');
   }
 }

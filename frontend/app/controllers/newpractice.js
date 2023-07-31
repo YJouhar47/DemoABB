@@ -12,7 +12,7 @@ export default class PracticeController extends Controller {
   @tracked newType;
 
   @service store;
-
+  @service router;
   @action
   createPractice(event) {
     event.preventDefault();
@@ -26,15 +26,6 @@ export default class PracticeController extends Controller {
       type: this.newType,
     });
     practice.save();
-
-    this.clearForm();
-  }
-  clearForm() {
-    this.newName = '';
-    this.newStreet = '';
-    this.newHousenumber = 0;
-    this.newPostalcode = 0;
-    this.newCity = '';
-    this.newType = '';
+    this.router.transitionTo('/');
   }
 }

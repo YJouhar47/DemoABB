@@ -1,35 +1,71 @@
 {{page-title "Add new practice"}}
 
 <Jumbo>
-  <h2>Voeg een praktijk toe :</h2>
+  <div class="container">
+    <h2 class="text-5xl">Voeg een praktijk toe :</h2>
 
-<form {{on "submit" this.createPractice}}>
-  <dl>
-    <dt>Naam : </dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newName}} @placeholder="naam" required />
-    </dd>
-    <dt>Straat :</dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newStreet}} @placeholder="straat" />
-    </dd>
-    <dt>Huisnummer :</dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newHousenumber}} @placeholder="huisnr" />
-    </dd>
-    <dt>Postcode :</dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newPostalcode}} @placeholder="postcode" />
-    </dd>
-    <dt>Gemeente :</dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newCity}} @placeholder="gemeente" />
-    </dd>
-    <dt>Type praktijk :</dt>
-    <dd>
-      <Input class="inputfield" @value={{this.newType}} @placeholder="praktijk" required />
-    </dd>
-  </dl>
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Maak aan</button>
-</form>
+    <form class="w-full max-w-lg" {{on "submit" this.createPractice}}>
+      <dl>
+        <dt>Naam : </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newName}}
+            @placeholder="naam"
+            type="text"
+            required
+          />
+        </dd>
+        <dt>Straat :</dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newStreet}}
+            @placeholder="straat"
+            type="text"
+          />
+        </dd>
+        <dt>Huisnummer :</dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newHousenumber}}
+            @placeholder="huisnr"
+            type="text"
+          />
+        </dd>
+        <dt>Postcode :</dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newPostalcode}}
+            @placeholder="postcode"
+            type="text"
+          />
+        </dd>
+        <dt>Gemeente :</dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newCity}}
+            @placeholder="gemeente"
+            type="text"
+          />
+        </dd>
+        <dt>Type praktijk :</dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newType}}
+            @placeholder="praktijk"
+            type="text"
+          />
+        </dd>
+      </dl>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        type="submit"
+      >Maak aan</button>
+    </form>
+  </div>
 </Jumbo>
