@@ -4,7 +4,8 @@ services:
   identifier:
     image: semtech/mu-identifier:1.9.1
     environment:
-      SESSION_COOKIE_SECURE: "on"
+      SESSION_COOKIE_SECURE: 'on'
+      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: '[{"variables":[],"name":"public"}]'
     links:
       - dispatcher:dispatcher
     ports:
@@ -15,11 +16,12 @@ services:
       - resource:resource
     volumes:
       - ./config/dispatcher:/config
-  database:
+
+  triplestore:
     image: redpencil/virtuoso:1.0.0
     environment:
       SPARQL_UPDATE: "true"
-      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+      DEFAULT_GRAPH: "http://mu.semte.ch/graphs/public"
     ports:
       - "8890:8890"
     volumes:
@@ -41,3 +43,16 @@ services:
     volumes:
       - ./frontend:/frontend
       - /node_modules
+
+  database:
+    image: semtech/mu-authorization
+    environment:
+      MU_SPARQL_ENDPOINT: "http://triplestore:8890/sparql"
+    volumes:
+      - ./config/authorization:/config
+  migrations:
+    image: semtech/mu-migrations-service:0.4.0
+    links:
+      - triplestore:database
+    volumes:
+      - ./config/migrations:/data/migrations
