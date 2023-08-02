@@ -1,0 +1,13 @@
+{
+    "persist_indexes": true,
+    "types": [
+        {
+            "type": "doctor",
+            "on_path": "doctors",
+            "rdf_type": "http://schema.org/Clinicals",
+            "properties": {
+                "name": "http://schema.org/name"
+            }
+        }
+    ]
+}

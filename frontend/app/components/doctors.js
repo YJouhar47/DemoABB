@@ -6,10 +6,16 @@ import { tracked } from '@glimmer/tracking';
 export default class DoctorsComponent extends Component {
   @service store;
   @tracked doctor;
-  
+
   @action
   removeDoctor(doctor, event) {
-    event.preventDefault();
-    doctor.destroyRecord();
+    const response = confirm(`Are you sure to delete - ${doctor.name} ?`);
+    if (response) {
+      event.preventDefault();
+      doctor.destroyRecord();
+      alert('Succesfully deleted');
+    } else {
+      alert('Canceled');
+    }
   }
 }

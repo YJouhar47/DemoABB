@@ -10,13 +10,24 @@ services:
       - dispatcher:dispatcher
     ports:
       - "80:80"
+  search:
+    image: semtech/mu-search:0.8.0
+    links:
+      - database:database
+    volumes:
+      - ./config/search:/config
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.0.0
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
   dispatcher:
     image: semtech/mu-dispatcher:2.0.0
     links:
       - resource:resource
     volumes:
       - ./config/dispatcher:/config
-
   triplestore:
     image: redpencil/virtuoso:1.0.0
     environment:

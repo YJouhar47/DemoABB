@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 
-@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic");
-
 .inputfield {
   border: 1px solid #ccc;
   padding: 0.75rem 1rem;
@@ -43,7 +41,7 @@ button {
 }
 
 body {
-  background: #f3f3f3;
+  background-color: #ccc;
 }
 
 a {
@@ -63,18 +61,7 @@ p {
  * Button
  */
 
-.button {
-  padding: 10px 30px;
-  text-decoration: none;
-  color: #fff;
-  background: #016aba;
-  border-radius: 5px;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  opacity: 0.9;
-  display: inline-block;
-}
+
 
 .button:hover {
   opacity: 1;
@@ -164,21 +151,6 @@ p {
   opacity: 1;
 }
 
-.menu button:hover {
-  background-color: #111;
-  opacity: 1;
-}
-
-.menu .results {
-  display: none;
-  position: absolute;
-  width: 215px;
-  top: 54px;
-  left: 10px;
-  background-color: #f6f6f6;
-  border-right: 1px solid rgb(0 0 0 / 5%);
-  border-bottom: 1px solid rgb(0 0 0 / 5%);
-}
 
 .results {
   margin-top: -10px;
@@ -193,28 +165,12 @@ p {
   background: #f3f3f3;
 }
 
-/**
- * Content Area
- */
-
-.body {
-  padding: 15px;
-}
-
-/**
- * Similar to Jumbotron
- */
-
 .jumbo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 2rem;
-}
-
-.jumbo:hover {
-  background-color: #f3f3f3;
 }
 
 .jumbo h2 {

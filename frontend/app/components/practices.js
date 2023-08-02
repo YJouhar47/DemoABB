@@ -8,7 +8,12 @@ export default class PracticesComponent extends Component {
   @tracked practice;
   @action
   async removePractice(practice, event) {
-    event.preventDefault();
-    practice.destroyRecord();
+    const response = confirm(`Are you sure to delete - ${practice.name} ?`);
+    if (response) {
+      event.preventDefault();
+      practice.destroyRecord();
+    } else {
+      alert('Canceled');
+    }
   }
 }

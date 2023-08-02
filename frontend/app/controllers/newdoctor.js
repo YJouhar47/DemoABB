@@ -52,8 +52,8 @@ export default class DoctorsController extends Controller {
     await doctor.save();
     doctor.practice = this.existingPractice;
     await doctor.save();
-    this.clearForm();
     this.router.transitionTo('/');
+    this.clearForm();
   }
   async clearForm() {
     this.newName = '';

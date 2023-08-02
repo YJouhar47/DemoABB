@@ -3,8 +3,8 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 export default class DoctorModel extends Model {
   @attr('string') name;
   @attr('string') street;
-  @attr('number') housenumber;
-  @attr('number') postalcode;
+  @attr('string') housenumber;
+  @attr('string') postalcode;
   @attr('string') city;
   
   // Correct belongsTo relationship definition
