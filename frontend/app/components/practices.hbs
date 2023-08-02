@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="rounded border-blue-300 border-4 w-2/4 border-teal-500">
+  <div class="rounded border-blue-300 border-4 w-2/4 border-teal-500 w-4/12 mt-4">
     <div class="flex flex-col justify-center items-center">
   <LinkTo @route="practice" @model={{@practice}}>
     <h3 class="text-2xl font-bold">{{@practice.name}}</h3>
@@ -25,9 +24,8 @@
     {{@practice.type}}
   </div>
   <button
-    class=" mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    class=" m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
     {{on "click" (fn this.removePractice @practice)}}
   >Remove</button>
   </div>
-</div>
 </div>

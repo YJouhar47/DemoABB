@@ -1,5 +1,4 @@
-<div class="container">
-  <div class=" rounded border-blue-300 border-4 w-2/4 border-teal-500">
+  <div class=" rounded border-blue-300 border-4 border-teal-500 w-4/12 mt-4 mb-12">
     <div class="flex flex-col justify-center items-center"> <!-- Added flex and items-center classes -->
       <LinkTo @route="doctor" @model={{@doctor}}>
         <h3 class="text-2xl font-bold">Dr. {{@doctor.name}}</h3>
@@ -35,9 +34,8 @@
       {{/if}}
 
       <button
-        class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        class="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         {{on "click" (fn this.removeDoctor @doctor)}}
       >Remove</button>
     </div>
   </div>
-</div>

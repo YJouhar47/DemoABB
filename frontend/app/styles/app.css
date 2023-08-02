@@ -39,9 +39,7 @@ div,
 span,
 a,
 button {
-  font-family: Lato, "Open Sans", "Helvetica Neue", "Segoe UI", Helvetica, Arial,
-    sans-serif;
-  line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -85,16 +83,6 @@ p {
 /**
  * Body Container
  */
-
-.container {
-  min-width: 740px;
-  height: 32rem;
-  background: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 /**
  * Top Navigation
@@ -218,8 +206,11 @@ p {
  */
 
 .jumbo {
-  padding: 50px;
-  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
 }
 
 .jumbo:hover {

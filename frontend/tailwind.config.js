@@ -8,10 +8,11 @@ module.exports = {
   theme: {
     extend: {},
     theme: {
-      fontFamily : {
-        'body': ['Helvetica']
-      }
-    }
+      fontFamily: {
+        display: ['Oswald'],
+        body: ['"Open Sans"'],
+      },
+    },
   },
   plugins: [],
 };

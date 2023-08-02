@@ -1,10 +1,11 @@
 {{page-title "Add new doctor"}}
 
 <Jumbo>
-  <div class="container">
-  <h2 class="text-5xl">Voeg een nieuwe dokter toe</h2>
-  <form {{on "submit" this.createDoctor}} class="w-full max-w-lg">
-    <dt>Naam:</dt>
+  <h2 class="text-5xl ml-5 pt-4">Add a new doctor :</h2>
+
+  <form {{on "submit" this.createDoctor}}>
+
+    <dt class="mt-4">Name :</dt>
     <dd>
       <Input
         @value={{this.newName}}
@@ -14,7 +15,7 @@
         required
       />
     </dd>
-    <dt>Straat:</dt>
+    <dt>Street :</dt>
     <dd>
       <Input
         class="inputfield"
@@ -24,7 +25,7 @@
         required
       />
     </dd>
-    <dt>Huisnummer:</dt>
+    <dt>Housenumber :</dt>
     <dd>
       <Input
         class="inputfield"
@@ -34,7 +35,7 @@
         required
       />
     </dd>
-    <dt>Postcode:</dt>
+    <dt>Postalcode :</dt>
     <dd>
       <Input
         class="inputfield"
@@ -44,7 +45,7 @@
         required
       />
     </dd>
-    <dt>Gemeente:</dt>
+    <dt>City :</dt>
     <dd>
       <Input
         class="inputfield"
@@ -55,16 +56,18 @@
       />
     </dd>
 
-    <dt>Praktijk:</dt>
+    <dt class="mt-2 ml-4">Practice :</dt>
     <dd>
-      <select class="inputfield" {{on "change" this.selectPractice}}>
+      <select class="inputfield w-58 ml-4" {{on "change" this.selectPractice}}>
         <option value="">Selecteer een praktijk</option>
         {{#each this.practices as |practice|}}
           <option value={{practice.id}}>{{practice.name}}</option>
         {{/each}}
       </select>
     </dd>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Create</button>
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 ml-20"
+      type="submit"
+    >Create</button>
   </form>
-  </div>
 </Jumbo>
