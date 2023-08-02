@@ -9,7 +9,7 @@ export default class DoctorsComponent extends Component {
 
   @action
   removeDoctor(doctor, event) {
-    const response = confirm(`Are you sure to delete - ${doctor.name} ?`);
+    const response = confirm(`Are you sure to delete - ${doctor.name}, ${doctor.lastname} ?`);
     if (response) {
       event.preventDefault();
       doctor.destroyRecord();

@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class DoctorsController extends Controller {
   @tracked newName;
+  @tracked newLastname
   @tracked newStreet;
   @tracked newHousenumber;
   @tracked newPostalcode;
@@ -44,6 +45,7 @@ export default class DoctorsController extends Controller {
 
     const doctor = this.store.createRecord('doctor', {
       name: this.newName,
+      lastname: this.newLastname,
       street: this.newStreet,
       housenumber: this.newHousenumber,
       postalcode: this.newPostalcode,
@@ -57,6 +59,7 @@ export default class DoctorsController extends Controller {
   }
   async clearForm() {
     this.newName = '';
+    this.newLastname = '';
     this.newStreet = '';
     this.newHousenumber = '';
     this.newPostalcode = '';

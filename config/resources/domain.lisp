@@ -3,6 +3,7 @@
 (define-resource doctor ()
   :class (s-prefix "schema:Clinician")
   :properties `((:name :string ,(s-prefix "schema:name"))
+                (:lastname :string ,(s-prefix "schema:familyName"))              
                 (:street :string ,(s-prefix "schema:streetAddress"))
                 (:housenumber :string ,(s-prefix "schema:Number"))
                 (:postalcode :string ,(s-prefix "schema:postalCode"))
