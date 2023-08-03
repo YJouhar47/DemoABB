@@ -9,7 +9,8 @@ export default class PracticesFilterComponent extends Component {
         (practice) =>
           practice.name.includes(query) ||
           practice.postalcode.includes(query) ||
-          practice.city.includes(query)
+          practice.city.includes(query) ||
+          practice.type.includes(query)
       );
     }
 

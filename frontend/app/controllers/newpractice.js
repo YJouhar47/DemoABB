@@ -27,5 +27,14 @@ export default class PracticeController extends Controller {
     });
     practice.save();
     this.router.transitionTo('/');
+    this.clearForm();
+  }
+  clearForm() {
+    this.newName = '';
+    this.newStreet = '';
+    this.newHousenumber = '';
+    this.newPostalcode = '';
+    this.newCity = '';
+    this.newType = '';
   }
 }
