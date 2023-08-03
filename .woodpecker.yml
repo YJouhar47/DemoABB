@@ -1,19 +1,47 @@
-steps:
-  backend:
-    image: golang
-    commands:
-      - go get
-      - go build
-      - go test
+# .gitlab-ci.yml
 
-  frontend:
-    image: node:6
-    commands:
-      - npm start
-      - npm install
-      - npm test
+# Define the GitLab CI/CD runner (executor) to use
+image: docker:20.10.8
 
-  notify:
-    image: plugins/slack
-    channel: developers
-    username: woodpecker
+# Define stages that make up the CI/CD pipeline
+stages:
+  - build
+  - test
+
+# Define variables that can be used across the pipeline
+variables:
+  DOCKER_HOST: tcp://docker:2375/  # Set the Docker daemon's address
+  NPM_CONFIG_REGISTRY: "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/npm/"
+
+services:
+  - docker:dind 
+
+services_dev:
+  image: node:14  
+  entrypoint: [""] 
+  command: ["npm", "run", "start"] 
+  ports:
+    - "4200:4200"
+  volumes:
+    - ./frontend:/frontend
+    - /node_modules
+
+build:
+  stage: build
+  script:
+    - docker-compose build --parallel
+
+
+test:
+  stage: test
+  script:
+    - docker-compose up -d services_dev  
+    - docker-compose ps 
+    - docker-compose exec services_dev npm install  
+    - docker-compose exec services_dev npm test
+    - docker-compose down  
+cleanup:
+  stage: cleanup
+  script:
+    - docker-compose down  
+    - rm -rf frontend/node_modules  
