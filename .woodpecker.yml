@@ -2,5 +2,5 @@ steps:
   - name : frontend
     image: node
     commands: 
-      - make build
+      - make build_frontend
       - make up
