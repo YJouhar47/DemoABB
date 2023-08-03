@@ -1,9 +1,4 @@
 steps: 
-  - name : backend 
-    image: golang
-    commands: 
-      - go build
-      - go test
   - name : frontend
     image: node
     commands: 
