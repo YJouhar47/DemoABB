@@ -3,6 +3,7 @@ steps:
     image: node
     commands: 
       - cd frontend
+      - npm install
       - npm run build
       - npm start
   - name : backend
