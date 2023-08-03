@@ -5,3 +5,7 @@ steps:
       - cd frontend
       - npm install
       - npm run
+  - name : backend
+    commands: 
+      - make build
+      - make up
