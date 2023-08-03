@@ -9,9 +9,11 @@ export default class DoctorsFilterComponent extends Component {
         doctors.filter(
           (doctor) =>
             doctor.name.includes(query) || doctor.postalcode.includes(query)
-        ) || doctor.city.includes(query);
+        ) ||
+        doctor.city.includes(query) ||
+        doctor.practice.includes(query);
     }
-    console.log("Dit is je dokter", doctors)
+    console.log('Dit is je dokter', doctors);
 
     return doctors;
   }

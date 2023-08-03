@@ -1,6 +1,4 @@
 <div class="rounded-lg w-4/12 mt-4 mb-12 bg-white p-8 space-y-5">
-
-
   <div class="flex flex-row justify-between items-center">
     <LinkTo @route="doctor" @model={{@doctor}}>
       <h3 class="text-4xl font-bold ml-4">Dr. {{@doctor.name}}  {{@doctor.lastname}}</h3>
@@ -18,16 +16,17 @@
         <span class="font-bold text-2xl">Street </span>
         <p class="text-1xl">{{@doctor.street}}</p>
       </div>
+     
       <div>
-        <span class="font-bold text-2xl">Housenumber </span>
-        <p class="text-1xl">{{@doctor.housenumber}}</p>
+        <span class="font-bold text-2xl">Postalcode </span>
+        <p class="text-1xl">{{@doctor.postalcode}}</p>
       </div>
     </div>
 
     <div> <!-- Display Street and Postalcode together -->
-      <div>
-        <span class="font-bold text-2xl">Postalcode </span>
-        <p class="text-1xl">{{@doctor.postalcode}}</p>
+       <div>
+        <span class="font-bold text-2xl">Housenumber </span>
+        <p class="text-1xl">{{@doctor.housenumber}}</p>
       </div>
       <div>
         <span class="font-bold text-2xl">City </span>

@@ -22,6 +22,7 @@
     @query={{this.query1}}
     as |filteredPractices|
   >
+
     {{#each filteredPractices as |practice|}}
       <Practices @practice={{practice}} />
     {{/each}}
