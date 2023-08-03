@@ -1,0 +1,19 @@
+steps:
+  backend:
+    image: golang
+    commands:
+      - go get
+      - go build
+      - go test
+
+  frontend:
+    image: node:6
+    commands:
+      - npm start
+      - npm install
+      - npm test
+
+  notify:
+    image: plugins/slack
+    channel: developers
+    username: woodpecker
