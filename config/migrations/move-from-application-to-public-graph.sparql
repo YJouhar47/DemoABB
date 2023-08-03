@@ -1,13 +1,13 @@
 DELETE {
-  GRAPH  <http://mu.semte.ch/application/> {
+  GRAPH  <http://mu.semte.ch/application> {
     ?s ?p ?o .
   }
 } INSERT {
-  GRAPH  <http://mu.semte.ch/graphs/public/> {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
     ?s ?p ?o .
   }
 } WHERE {
-  GRAPH  <http://mu.semte.ch/application/> {
+  GRAPH  <http://mu.semte.ch/application> {
     ?s a ?type ; ?p ?o .
     VALUES ?type {
         <http://schema.org/Clinician>
