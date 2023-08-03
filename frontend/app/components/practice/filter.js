@@ -13,9 +13,6 @@ export default class PracticesFilterComponent extends Component {
           practice.type.includes(query)
       );
     }
-
-    console.log('Dit zijn je praktijken :', practices);
-
     return practices;
   }
 }
