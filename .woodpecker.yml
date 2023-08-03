@@ -2,6 +2,6 @@ steps:
   - name : frontend
     image: node
     commands: 
-      - npm install
+      - npm ci
       - npm run test
       - sudo npm run build
