@@ -1,7 +1,7 @@
 # Makefile for managing Docker Compose commands
 
 # Use docker-compose.dev.yml for development
-COMPOSE_DEV = docker-compose -f docker-compose.yml -f docker-compose.dev.yml
+COMPOSE_DEV = docker-compose.yml -f docker-compose.dev.yml
 
 list: 
 	@echo "frontend" - http://localhost:4200
@@ -12,8 +12,8 @@ list:
 all: start
 
 up: 
-	$(COMPOSE_DEV) up
-	
+	docker-compose up
+
 
 start: dev list 
 	
@@ -30,7 +30,7 @@ migrate:
 	$(COMPOSE_DEV) run migrations
 
 build: 
-	$(COMPOSE_DEV) build
+	docker-compose build
 
 build_frontend:
 	$(COMPOSE_DEV) build emberjs
