@@ -36,8 +36,9 @@ export default class DoctorComponent extends Component {
   @action
   async editDoctor(doctor, event) {
     event.preventDefault();
+    console.log({doctor})
     await doctor.save();
-    doctor.practice = this.existingPractice; // Set the practice relationship to the existingPractice object
+    doctor.practice = this.args.existingPractice; // Set the practice relationship to the existingPractice object
     await doctor.save();
 
     this.router.transitionTo('/');
