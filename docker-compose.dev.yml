@@ -3,10 +3,10 @@ version: "3.4"
 services:
   emberjs:
     build:
-      context: ./DemoABB-frontend/
+      context: ../DemoABB-frontend/
       dockerfile: docker/Dockerfile
     ports:
       - 4200:4200
     volumes:
-      - ./DemoABB-frontend:/DemoABB-frontend
+      - ../DemoABB-frontend:/DemoABB-frontend
       - /node_modules
