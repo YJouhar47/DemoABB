@@ -3,11 +3,9 @@
 This project makes it possible to look for your nearest doctor
 If you are looking for the nearest practice, you can find it and if you look for nearest doctor you can find it.
 
+Styling is made in Tailwind CSS
 
-
-Bootstrap a mu.semte.ch microservices environment in three easy steps.
-
-##Project startup
+#Project startup
 
 Clone all your repo's
 `make prepare`
