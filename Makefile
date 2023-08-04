@@ -1,4 +1,7 @@
 COMPOSE_DEV = docker-compose -f docker-compose.yml -f docker-compose.dev.yml
+GOBACK = cd ..
+prepare: 
+	sh prepare.sh
 
 list: 
 	@echo "Front-End" - http://localhost:4200
