@@ -16,7 +16,7 @@ defmodule Acl.UserGroups.Config do
         useage: [:read, :write, :read_for_write],
         access: %AlwaysAccessible{},
         graphs: [ %GraphSpec{
-                    graph: "http://mu.semte.ch/graphs/public/",
+                    graph: "http://mu.semte.ch/graphs/public",
                     constraint: %ResourceConstraint{
                       resource_types: [
                         "http://schema.org/Clinician",
