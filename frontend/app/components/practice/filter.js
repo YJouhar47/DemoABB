@@ -5,14 +5,23 @@ export default class PracticesFilterComponent extends Component {
     let { practices, query } = this.args;
 
     if (query) {
-      practices = practices.filter(
-        (practice) =>
-          practice.name.includes(query) ||
-          practice.postalcode.includes(query) ||
-          practice.city.includes(query) ||
-          practice.type.includes(query)
-      );
+      query = query.toLowerCase(); // Convert query to lowercase
+
+      practices = practices.filter((practice) => {
+        const name = practice.name.toLowerCase();
+        const postalcode = practice.postalcode.toLowerCase();
+        const city = practice.city.toLowerCase();
+        const type = practice.type.toLowerCase();
+
+        return (
+          name.includes(query) ||
+          postalcode.includes(query) ||
+          city.includes(query) ||
+          type.includes(query)
+        );
+      });
     }
+
     return practices;
   }
 }

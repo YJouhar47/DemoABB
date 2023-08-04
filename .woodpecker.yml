@@ -1,12 +1,14 @@
-steps: 
-  - name : frontend
+steps:
+  - name: frontend
     image: node
-    commands: 
+    commands:
       - cd frontend
       - npm install
       - npm run build
-  - name : backend
+
+  - name: backend
     image: docker-compose
-    commands: 
+    commands:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker-compose build
       - docker-compose up
