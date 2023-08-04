@@ -1,15 +1,45 @@
-# mu-project
+# Super Doctors
+
+This project makes it possible to look for your nearest doctor
+If you are looking for the nearest practice, you can find it and if you look for nearest doctor you can find it.
+
+
 
 Bootstrap a mu.semte.ch microservices environment in three easy steps.
 
-##How-to start your project 
-1. To clone your frontend and build it you have to do the command `make prepare`
-2. To build your project you have to do `make build`
-3. Run your project 
+##Project startup
 
-##How to use your application
+Clone all your repo's
+`make prepare`
 
-##FrontEnd is developed in EmberJS
+Building your project 
+`make build`
 
+Building your frontend
+`make build_frontend`
+
+Start your project 
+`make up`
+
+Start your project and show list of URL's
+`make start`
+
+Run your migrations
+`make migrate`
+
+List of all urls that are used 
+`make list`
+
+Stop all the containers 
+`make down`
+
+Kill all the containers 
+`make stop`
+
+Prune all your containers and images
+`make prune`
+
+For help 
+`make help`
 
 

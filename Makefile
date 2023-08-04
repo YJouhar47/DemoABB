@@ -1,5 +1,5 @@
 COMPOSE_DEV = docker-compose -f docker-compose.yml -f docker-compose.dev.yml
-GOBACK = cd ..
+
 prepare: 
 	sh prepare.sh
 
@@ -9,11 +9,8 @@ list:
 	@echo "Doctors API" - http://localhost/doctors
 	@echo "Practices API" - http://localhost/practices
 
-all: start
-
 up: 
 	$(COMPOSE_DEV) up
-	
 
 start: list dev 
 	
