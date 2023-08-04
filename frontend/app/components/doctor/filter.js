@@ -5,7 +5,7 @@ export default class DoctorsFilterComponent extends Component {
     let { doctors, query } = this.args;
 
     if (query) {
-      query = query.toLowerCase(); // Convert query to lowercase
+      query = query.toLowerCase();
 
       doctors = doctors.filter((doctor) => {
         const name = doctor.name.toLowerCase();

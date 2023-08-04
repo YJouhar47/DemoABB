@@ -10,14 +10,7 @@ alias Acl.GroupSpec.GraphCleanup, as: GraphCleanup
 
 defmodule Acl.UserGroups.Config do
   def user_groups do
-    # These elements are walked from top to bottom.  Each of them may
-    # alter the quads to which the current query applies.  Quads are
-    # represented in three sections: current_source_quads,
-    # removed_source_quads, new_quads.  The quads may be calculated in
-    # many ways.  The useage of a GroupSpec and GraphCleanup are
-    # common.
     [
-      # // PUBLIC
       %GroupSpec{
         name: "public",
         useage: [:read, :write, :read_for_write],
@@ -30,9 +23,6 @@ defmodule Acl.UserGroups.Config do
                         "http://schema.org/MedicalEntity"
                       ]
                     } } ] },
-
-      # // CLEANUP
-      #
       %GraphCleanup{
         originating_graph: "http://mu.semte.ch/application/",
         useage: [:write],

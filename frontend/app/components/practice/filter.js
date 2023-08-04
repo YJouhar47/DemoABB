@@ -5,7 +5,7 @@ export default class PracticesFilterComponent extends Component {
     let { practices, query } = this.args;
 
     if (query) {
-      query = query.toLowerCase(); // Convert query to lowercase
+      query = query.toLowerCase(); 
 
       practices = practices.filter((practice) => {
         const name = practice.name.toLowerCase();

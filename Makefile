@@ -1,13 +1,10 @@
-# Makefile for managing Docker Compose commands
-
-# Use docker-compose.dev.yml for development
 COMPOSE_DEV = docker-compose -f docker-compose.yml -f docker-compose.dev.yml
 
 list: 
-	@echo "frontend" - http://localhost:4200
-	@echo "virtuoso-sparql" - http://localhost:8900/sparql
-	@echo "doctors api" - http://localhost/doctors
-	@echo "practices api" - http://localhost/practices
+	@echo "Front-End" - http://localhost:4200
+	@echo "Virtuoso-SparQL" - http://localhost:8900/sparql
+	@echo "Doctors API" - http://localhost/doctors
+	@echo "Practices API" - http://localhost/practices
 
 all: start
 
@@ -25,6 +22,7 @@ stop:
 
 down: 
 	$(COMPOSE_DEV) down
+
 clean:
 	$(COMPOSE_DEV) down -v
 
@@ -45,7 +43,9 @@ help:
 	@echo "Available targets:"
 	@echo "  start         Start the regular setup"
 	@echo "  dev           Start the development environment"
-	@echo "  stop          Stop all containers"
+	@echo "  stop          Kill all containers"
+	@echo "  down          Stop all containers"
+	@echo "  list          Show the list of links"
 	@echo "  clean         Remove all containers and volumes"
 	@echo "  migrate       Run migrations"
 	@echo "  build_frontend  Build Ember.js frontend"
